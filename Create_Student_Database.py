@@ -2,7 +2,7 @@ import sqlite3
 
 
 def main():
-    # Connect to the database.
+    # Connect to the database (creates student.db if it doesn't exist)
     conn = sqlite3.connect('student.db')
 
     # Get a database cursor.
@@ -41,10 +41,12 @@ def add_student_table(cur):
 
 # The add_student function adds rows to the Student table.
 def add_student(cur):
-    student_id = [('12345', 'Matthew', 'Johnson', '1963260712', 'matthew.johnson@gmail.com', 31, 16),
-                  ('67890', 'Mark', 'Thill', '0634891275', 'mark.thill@hotmail.com', 14, 15),
-                  ('54321', 'Luke', 'Tyler', '7934720571', 'luketyler@gmail.com', 30, 15),
-                  ('87594', 'John', 'Sullivan', '4907325814', 'johnsullivan@outlook.com', 48, 17)]
+    students = [
+        ('12345', 'Matthew', 'Johnson', '1963260712', 'matthew.johnson@gmail.com', 31, 16),
+        ('67890', 'Mark', 'Thill', '0634891275', 'mark.thill@hotmail.com', 14, 15),
+        ('54321', 'Luke', 'Tyler', '7934720571', 'luketyler@gmail.com', 30, 15),
+        ('87594', 'John', 'Sullivan', '4907325814', 'johnsullivan@outlook.com', 48, 17)
+]
 
     for row in student_id:
         cur.execute('''INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?)''', row)
