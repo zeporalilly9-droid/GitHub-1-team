@@ -48,7 +48,7 @@ def add_student(cur):
         ('87594', 'John', 'Sullivan', '4907325814', 'johnsullivan@outlook.com', 48, 17)
 ]
 
-    for row in student_id:
+    for row in students:
         cur.execute('''INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, ?)''', row)
 
 
